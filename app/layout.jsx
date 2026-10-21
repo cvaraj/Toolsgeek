@@ -1,4 +1,5 @@
 import "./site.css";
+import Script from "next/script";
 import { SITE_NAME, SITE_URL } from "./seo";
 
 export const metadata = {
@@ -25,7 +26,16 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Script
+          id="google-adsense"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9500588134322363"
+          strategy="afterInteractive"
+          async
+          crossOrigin="anonymous"
+        />
+        {children}
+      </body>
     </html>
   );
 }
