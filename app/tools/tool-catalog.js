@@ -14,6 +14,16 @@ export const tools = [
   { slug: "json-formatter", title: "JSON Formatter & Validator", category: "Developer · JSON", description: "Format, minify, validate, and copy JSON with clear syntax error messages.", accent: "linear-gradient(135deg,#accbee,#e7f0fd)" },
   { slug: "password-generator", title: "Password Generator", category: "Everyday · Privacy", description: "Generate a random password locally with adjustable length and character sets.", accent: "linear-gradient(135deg,#667eea,#764ba2)" },
   { slug: "background-generator", title: "Background Generator", category: "Design · Image", description: "Make a background that feels like you. Mix colors, explore nine patterns, then download it in the size you need.", accent: "linear-gradient(135deg,#b8f36b,#59b89d 50%,#a47de5)" },
+  { slug: "image-pdf-converter", title: "Image to PDF & PDF to Images", category: "PDF · Convert", description: "Turn images into a PDF or preview and export PDF pages as PNG images in your browser.", accent: "linear-gradient(135deg,#ffb199,#ffecd2)" },
+  { slug: "pdf-merger-splitter", title: "PDF Merger & Splitter", category: "PDF · Organize", description: "Merge several PDFs or extract a page range into a new PDF, locally in your browser.", accent: "linear-gradient(135deg,#f6d365,#fda085)" },
+  { slug: "markdown-editor", title: "Markdown Editor & Preview", category: "Text · Writing", description: "Write Markdown with a live preview and download your finished document.", accent: "linear-gradient(135deg,#a8edea,#fed6e3)" },
+  { slug: "csv-viewer", title: "CSV Viewer & Formatter", category: "Everyday · Data", description: "Open, edit, inspect, and download CSV files with a readable table preview.", accent: "linear-gradient(135deg,#d4fc79,#96e6a1)" },
+  { slug: "date-calculator", title: "Date Calculator", category: "Everyday · Date", description: "Calculate the days between dates or find a date by adding or subtracting days.", accent: "linear-gradient(135deg,#84fab0,#8fd3f4)" },
+  { slug: "pomodoro-timer", title: "Pomodoro Timer", category: "Productivity · Focus", description: "Focus in timed work sessions with breaks and simple session tracking.", accent: "linear-gradient(135deg,#fbc2eb,#a6c1ee)" },
+  { slug: "daily-checklist", title: "Daily Checklist", category: "Productivity · Tasks", description: "Keep a lightweight to-do list that saves automatically in this browser.", accent: "linear-gradient(135deg,#cfd9df,#e2ebf0)" },
+  { slug: "bill-splitter", title: "Bill & Expense Splitter", category: "Everyday · Money", description: "Split a shared bill fairly, including tax and tip, with a clear per-person total.", accent: "linear-gradient(135deg,#d299c2,#fef9d7)" },
+  { slug: "typing-speed-test", title: "Typing Speed Test", category: "Everyday · Practice", description: "Practice typing and see your words per minute, accuracy, and elapsed time.", accent: "linear-gradient(135deg,#667eea,#764ba2)" },
+  { slug: "image-cropper", title: "Image Cropper", category: "Image · Edit", description: "Crop an image to common aspect ratios and download the result as a JPEG.", accent: "linear-gradient(135deg,#fddb92,#d1fdff)" },
 ];
 
 export const toolBySlug = Object.fromEntries(tools.map((tool) => [tool.slug, tool]));

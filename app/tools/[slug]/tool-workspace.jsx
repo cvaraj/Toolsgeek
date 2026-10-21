@@ -5,6 +5,7 @@ import { GradientGenerator, ColorPaletteGenerator } from "./design-tools";
 import { ImageCompressor, SocialImageResizer, FaviconGenerator } from "./image-tools";
 import { WordCounter, CaseConverter, TextDiffChecker, LoremIpsumGenerator } from "./text-tools";
 import { QRCodeGenerator, UnitConverter, TimeZonePlanner, JSONFormatter, PasswordGenerator } from "./everyday-tools";
+import { ImagePdfConverter, PdfMergerSplitter, MarkdownEditor, CsvViewer, DateCalculator, PomodoroTimer, DailyChecklist, BillSplitter, TypingSpeedTest, ImageCropper } from "./daily-tools";
 
 const VIEWS = {
   "gradient-generator": GradientGenerator,
@@ -21,6 +22,16 @@ const VIEWS = {
   "time-zone-planner": TimeZonePlanner,
   "json-formatter": JSONFormatter,
   "password-generator": PasswordGenerator,
+  "image-pdf-converter": ImagePdfConverter,
+  "pdf-merger-splitter": PdfMergerSplitter,
+  "markdown-editor": MarkdownEditor,
+  "csv-viewer": CsvViewer,
+  "date-calculator": DateCalculator,
+  "pomodoro-timer": PomodoroTimer,
+  "daily-checklist": DailyChecklist,
+  "bill-splitter": BillSplitter,
+  "typing-speed-test": TypingSpeedTest,
+  "image-cropper": ImageCropper,
 };
 
 export default function ToolWorkspace({ tool }) {

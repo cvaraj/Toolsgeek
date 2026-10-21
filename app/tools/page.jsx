@@ -6,7 +6,7 @@ import { tools } from "./tool-catalog";
 
 export const metadata = pageMetadata({
   title: "Free Online Tools for Design, Writing & Everyday Tasks",
-  description: "Browse 15 free ToolsGeek utilities for design, image editing, writing, development, and everyday tasks. Search by name or category.",
+  description: "Browse 25 free ToolsGeek utilities for design, PDF, image editing, writing, productivity, development, and everyday tasks. Search by name or category.",
   path: "/tools",
   image: "/og/tools",
 });
@@ -18,7 +18,7 @@ export default function ToolsPage() {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "ToolsGeek Online Tools",
-      description: "Free browser tools for design, images, writing, development, and everyday tasks.",
+      description: "Free browser tools for design, PDF, images, writing, productivity, development, and everyday tasks.",
       url: `${SITE_URL}/tools`,
       mainEntity: {
         "@type": "ItemList",
@@ -40,7 +40,7 @@ export default function ToolsPage() {
         <div className="eyebrow"><span className="status-dot" /> THE TOOLSHELF</div>
         <h1>Find a tool.<br /><span>Find your flow.</span></h1>
         <p>A growing collection of helpful little things. Pick what you need and jump right in.</p>
-        <div className="tools-count"><span>15</span> BROWSER TOOLS <i /> FREE TO USE</div>
+        <div className="tools-count"><span>{tools.length}</span> BROWSER TOOLS <i /> FREE TO USE</div>
       </section>
       <ToolDirectory />
 

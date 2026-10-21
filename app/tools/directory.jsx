@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { tools } from "./tool-catalog";
 
-const categories = ["All", "Design", "Image", "Text", "Everyday", "Developer"];
+const categories = ["All", "Design", "Image", "Text", "PDF", "Everyday", "Productivity", "Developer"];
 
 export default function ToolDirectory() {
   const [query, setQuery] = useState("");
