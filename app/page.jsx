@@ -1,7 +1,24 @@
 import Link from "next/link";
+import SeoJsonLd from "./seo-jsonld";
+import { SITE_NAME, SITE_URL, pageMetadata } from "./seo";
+
+export const metadata = pageMetadata({
+  title: "Free Online Tools for Design, Images & Everyday Tasks",
+  description: "Create, edit, and get things done with free online tools from ToolsGeek. Use the background generator and a growing collection of browser-based utilities.",
+  path: "/",
+  image: "/og/home",
+});
 
 export default function HomePage() {
   return (
+    <>
+    <SeoJsonLd data={{
+      "@context": "https://schema.org",
+      "@graph": [
+        { "@type": "Organization", name: SITE_NAME, url: SITE_URL, email: "support@toolsgeek.online" },
+        { "@type": "WebSite", name: SITE_NAME, url: SITE_URL, description: "Free browser-based tools for design, images, writing, and everyday tasks." },
+      ],
+    }} />
     <main className="site-shell">
       <header className="site-header">
         <Link className="brand" href="/" aria-label="ToolsGeek home">
@@ -30,7 +47,7 @@ export default function HomePage() {
           <div className="art-spark spark-one">✳</div><div className="art-spark spark-two">✦</div>
           <span className="art-index">TOOLS FOR YOUR NEXT<br />LITTLE BIG IDEA</span>
         </div>
-        <div className="hero-bottom"><span>BUILT FOR THE EVERYDAY</span><span className="hero-bottom-line" /><span>01 TOOL AND COUNTING</span></div>
+        <div className="hero-bottom"><span>BUILT FOR THE EVERYDAY</span><span className="hero-bottom-line" /><span>15 TOOLS AND COUNTING</span></div>
       </section>
 
       <section className="intro-section">
@@ -48,5 +65,6 @@ export default function HomePage() {
 
       <footer className="site-footer"><Link className="brand" href="/"><span className="brand-mark">t</span><span>toolsgeek<span className="brand-dot">.</span></span></Link><span>Handy things for everyday things.</span><a className="footer-email" href="mailto:support@toolsgeek.online">support@toolsgeek.online</a><span>© 2026 ToolsGeek</span></footer>
     </main>
+    </>
   );
 }

@@ -201,7 +201,7 @@ export default function BackgroundGenerator() {
   const canvasRef = useRef(null);
   const [mode, setMode] = useState("Mesh");
   const [colors, setColors] = useState(PALETTES[0]);
-  const [seed, setSeed] = useState(() => Math.floor(Math.random() * 1e6));
+  const [seed, setSeed] = useState(0);
   const [size, setSize] = useState("1920x1080");
   const [customWidth, setCustomWidth] = useState(1920);
   const [customHeight, setCustomHeight] = useState(1080);
@@ -219,6 +219,7 @@ export default function BackgroundGenerator() {
     setDimensions([width, height]);
   }, [mode, colors, seed, size, customWidth, customHeight, scale, angle, grain]);
 
+  useEffect(() => { setSeed(Math.floor(Math.random() * 1e6)); }, []);
   useEffect(() => { render(); }, [render]);
 
   function download(type, extension) {

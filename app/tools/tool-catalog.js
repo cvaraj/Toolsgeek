@@ -1,0 +1,19 @@
+export const tools = [
+  { slug: "gradient-generator", title: "Gradient Generator", category: "Design · CSS", description: "Create smooth color blends, tune the angle and stops, then copy ready-to-use CSS.", accent: "linear-gradient(120deg,#73d4b2,#9076de,#f590a7)" },
+  { slug: "color-palette-generator", title: "Color Palette Generator", category: "Design · Color", description: "Build a balanced five-color palette, lock favorites, check contrast, and copy hex values.", accent: "linear-gradient(90deg,#f28482 0 20%,#f6bd60 20% 40%,#84a59d 40% 60%,#f7ede2 60% 80%,#355070 80%)" },
+  { slug: "image-compressor", title: "Image Compressor", category: "Image · Optimize", description: "Compress JPG, PNG, and WebP images in your browser and compare the file sizes.", accent: "linear-gradient(135deg,#b8f36b,#59b89d 50%,#3b7185)" },
+  { slug: "social-image-resizer", title: "Social Media Image Resizer", category: "Image · Resize", description: "Fit an image to common social post, story, profile, and cover dimensions.", accent: "linear-gradient(135deg,#f3c4fb,#a6c1ee 48%,#fbc2eb)" },
+  { slug: "favicon-generator", title: "Favicon Generator", category: "Design · Web", description: "Turn an image into a favicon and download it with a ready-to-paste HTML snippet.", accent: "linear-gradient(135deg,#b4ec51,#429321)" },
+  { slug: "word-counter", title: "Word & Character Counter", category: "Text · Writing", description: "Count words, characters, sentences, paragraphs, and estimated reading time as you type.", accent: "linear-gradient(135deg,#f5af19,#f12711)" },
+  { slug: "case-converter", title: "Case Converter", category: "Text · Writing", description: "Convert text to sentence, title, upper, lower, camel, or snake case in one click.", accent: "linear-gradient(135deg,#a1c4fd,#c2e9fb)" },
+  { slug: "text-diff-checker", title: "Text Diff Checker", category: "Text · Compare", description: "Compare two versions of text and see added, removed, and unchanged lines.", accent: "linear-gradient(135deg,#d4fc79,#96e6a1)" },
+  { slug: "lorem-ipsum-generator", title: "Lorem Ipsum Generator", category: "Text · Placeholder", description: "Generate adjustable placeholder text by paragraphs, sentences, or words, then copy it.", accent: "linear-gradient(135deg,#fddb92,#d1fdff)" },
+  { slug: "qr-code-generator", title: "QR Code Generator", category: "Everyday · Share", description: "Create and download a QR code for a link or text. Your content stays in your browser.", accent: "linear-gradient(135deg,#fdfbfb,#ebedee)" },
+  { slug: "unit-converter", title: "Unit Converter", category: "Everyday · Convert", description: "Convert common length, weight, temperature, volume, and data units instantly.", accent: "linear-gradient(135deg,#89f7fe,#66a6ff)" },
+  { slug: "time-zone-planner", title: "Time Zone Planner", category: "Everyday · Time", description: "Compare a date and time across cities and see each local time and UTC offset.", accent: "linear-gradient(135deg,#30cfd0,#330867)" },
+  { slug: "json-formatter", title: "JSON Formatter & Validator", category: "Developer · JSON", description: "Format, minify, validate, and copy JSON with clear syntax error messages.", accent: "linear-gradient(135deg,#accbee,#e7f0fd)" },
+  { slug: "password-generator", title: "Password Generator", category: "Everyday · Privacy", description: "Generate a random password locally with adjustable length and character sets.", accent: "linear-gradient(135deg,#667eea,#764ba2)" },
+  { slug: "background-generator", title: "Background Generator", category: "Design · Image", description: "Make a background that feels like you. Mix colors, explore nine patterns, then download it in the size you need.", accent: "linear-gradient(135deg,#b8f36b,#59b89d 50%,#a47de5)" },
+];
+
+export const toolBySlug = Object.fromEntries(tools.map((tool) => [tool.slug, tool]));
