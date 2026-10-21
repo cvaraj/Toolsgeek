@@ -26,7 +26,7 @@ export async function GET(_request, { params }) {
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "62px 72px", color: "#f6f5f0", background: "radial-gradient(circle at 90% 43%, #9dda6a33 0, transparent 27%), linear-gradient(125deg, #14251f 0%, #244532 58%, #496b3c 100%)", fontFamily: "sans-serif" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 25, fontWeight: 700 }}><div style={{ width: 42, height: 42, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 13, background: "#b8f36b", color: "#18231f", fontSize: 30, fontWeight: 800 }}>t</div>toolsgeek</div>
-        <div style={{ color: "#c9d1bd", fontSize: 13, letterSpacing: 2 }}>TEELSGEEK.ONLINE</div>
+        <div style={{ color: "#c9d1bd", fontSize: 13, letterSpacing: 2 }}>TOOLSGEEK.ONLINE</div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", maxWidth: 990 }}>
         <div style={{ marginBottom: 20, color: "#c2ed8c", fontSize: 15, letterSpacing: 3 }}>{category}</div>

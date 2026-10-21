@@ -1,4 +1,4 @@
-export const SITE_URL = "https://teelsgeek.online";
+export const SITE_URL = "https://toolsgeek.online";
 export const SITE_NAME = "ToolsGeek";
 
 export function pageMetadata({ title, description, path, image = "/og/home" }) {
