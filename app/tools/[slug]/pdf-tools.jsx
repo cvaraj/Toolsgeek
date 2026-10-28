@@ -1,0 +1,28 @@
+"use client";
+
+import { useState } from "react";
+import { PDFDocument } from "pdf-lib";
+import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
+import { Field, ToolButton, downloadBlob } from "./tool-ui";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/legacy/build/pdf.worker.mjs", import.meta.url).toString();
+
+const niceError = (error) => error?.message || "Something went wrong. Please check your input and try again.";
+function LocalFilesNote() { return <p className="privacy-note">Your files and data stay in this browser; they are not uploaded to a server.</p>; }
+function filePickerProps(event, setter) { setter(Array.from(event.target.files || [])); }
+
+export function ImagePdfConverter() {
+  const [images, setImages] = useState([]); const [pdfFile, setPdfFile] = useState(null); const [pages, setPages] = useState([]); const [busy, setBusy] = useState(false); const [error, setError] = useState("");
+  const imageToPdf = async () => { try { setBusy(true); setError(""); const doc = await PDFDocument.create(); for (const file of images) { const bytes = await file.arrayBuffer(); const img = file.type === "image/png" ? await doc.embedPng(bytes) : await doc.embedJpg(bytes); const page = doc.addPage([img.width, img.height]); page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height }); } downloadBlob(new Blob([await doc.save()], { type: "application/pdf" }), "toolsgeek-images.pdf"); } catch (e) { setError(niceError(e)); } finally { setBusy(false); } };
+  const pdfToImages = async () => { if (!pdfFile) return; try { setBusy(true); setError(""); const doc = await pdfjs.getDocument({ data: await pdfFile.arrayBuffer(), isEvalSupported: false }).promise; const output = []; for (let n = 1; n <= doc.numPages; n++) { const page = await doc.getPage(n); const viewport = page.getViewport({ scale: 1.5 }); const canvas = document.createElement("canvas"); canvas.width = viewport.width; canvas.height = viewport.height; await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise; const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png")); output.push({ name: `page-${n}.png`, url: URL.createObjectURL(blob) }); } setPages(output); } catch (e) { setError(niceError(e)); } finally { setBusy(false); } };
+  return <div className="tool-control-stack"><h2>Images to PDF</h2><Field label="Choose JPG or PNG images"><input type="file" accept="image/jpeg,image/png" multiple onChange={(e) => filePickerProps(e, setImages)} /></Field><p className="field-help">{images.length} image{images.length === 1 ? "" : "s"} selected. Images are added in selection order.</p><ToolButton disabled={!images.length || busy} onClick={imageToPdf}>{busy ? "Working…" : "Download PDF"}</ToolButton><hr /><h2>PDF pages to images</h2><Field label="Choose a PDF"><input type="file" accept="application/pdf,.pdf" onChange={(e) => { setPdfFile(e.target.files?.[0] || null); setPages([]); }} /></Field><ToolButton disabled={!pdfFile || busy} onClick={pdfToImages}>{busy ? "Converting…" : "Convert pages to PNG"}</ToolButton>{error && <p className="tool-error" role="alert">{error}</p>}{pages.length > 0 && <div className="daily-results"><p>{pages.length} page{pages.length === 1 ? "" : "s"} converted</p>{pages.map((page) => <a key={page.name} className="tool-button secondary" href={page.url} download={page.name}>Download {page.name}</a>)}</div>}<LocalFilesNote /></div>;
+}
+
+export function PdfMergerSplitter() {
+  const [files, setFiles] = useState([]); const [range, setRange] = useState(""); const [busy, setBusy] = useState(false); const [error, setError] = useState("");
+  const merge = async () => { try { setBusy(true); setError(""); const out = await PDFDocument.create(); for (const file of files) { const src = await PDFDocument.load(await file.arrayBuffer()); const copied = await out.copyPages(src, src.getPageIndices()); copied.forEach((p) => out.addPage(p)); } downloadBlob(new Blob([await out.save()], { type: "application/pdf" }), "merged.pdf"); } catch (e) { setError(niceError(e)); } finally { setBusy(false); } };
+  const split = async () => { try { setBusy(true); setError(""); const src = await PDFDocument.load(await files[0].arrayBuffer()); const selected = parsePages(range, src.getPageCount()); if (!selected.length) throw new Error("Enter pages such as 1-3, 5."); const out = await PDFDocument.create(); (await out.copyPages(src, selected)).forEach((p) => out.addPage(p)); downloadBlob(new Blob([await out.save()], { type: "application/pdf" }), "selected-pages.pdf"); } catch (e) { setError(niceError(e)); } finally { setBusy(false); } };
+  return <div className="tool-control-stack"><Field label="Select PDF files"><input type="file" accept="application/pdf,.pdf" multiple onChange={(e) => filePickerProps(e, setFiles)} /></Field><p className="field-help">{files.length} file{files.length === 1 ? "" : "s"} selected</p><div className="tool-actions"><ToolButton onClick={merge} disabled={files.length < 2 || busy}>{busy ? "Working…" : "Merge PDFs"}</ToolButton><ToolButton secondary onClick={split} disabled={files.length !== 1 || busy}>Extract pages from first PDF</ToolButton></div><Field label="Pages to extract" hint="Example: 1-3, 5"><input value={range} onChange={(e) => setRange(e.target.value)} placeholder="1-3, 5" /></Field>{error && <p className="tool-error" role="alert">{error}</p>}<LocalFilesNote /></div>;
+}
+
+function parsePages(value, total) { const nums = new Set(); value.split(",").forEach((part) => { const [a, b] = part.trim().split("-").map(Number); if (!a || a < 1 || a > total) return; const end = b || a; for (let n = a; n <= Math.min(end, total); n++) nums.add(n - 1); }); return [...nums].sort((a,b) => a-b); }

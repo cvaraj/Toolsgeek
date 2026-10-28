@@ -3,6 +3,7 @@ import ToolDirectory from "./directory";
 import SeoJsonLd from "../seo-jsonld";
 import { SITE_URL, pageMetadata } from "../seo";
 import { tools } from "./tool-catalog";
+import SiteFooter from "../components/site-footer";
 
 export const metadata = pageMetadata({
   title: "Free Online Tools for Design, Writing & Everyday Tasks",
@@ -26,7 +27,7 @@ export default function ToolsPage() {
           "@type": "ListItem",
           position: index + 1,
           name: tool.title,
-          url: `${SITE_URL}${tool.slug === "background-generator" ? "/background-generator" : `/tools/${tool.slug}`}`,
+          url: `${SITE_URL}/tools/${tool.slug}`,
         })),
       },
     }} />
@@ -45,7 +46,7 @@ export default function ToolsPage() {
       <ToolDirectory />
 
       <section className="coming-soon"><span className="coming-icon">✳</span><div><span className="eyebrow">THIS IS JUST THE BEGINNING</span><h2>More useful things<br />are on the way.</h2></div><span className="coming-note">We’re making room<br />in the toolbox.</span></section>
-      <footer className="site-footer"><Link className="brand" href="/"><span className="brand-mark">t</span><span>toolsgeek<span className="brand-dot">.</span></span></Link><span>Handy things for everyday things.</span><a className="footer-email" href="mailto:support@toolsgeek.online">support@toolsgeek.online</a><span>© 2026 ToolsGeek</span></footer>
+      <SiteFooter />
     </main>
     </>
   );

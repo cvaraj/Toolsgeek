@@ -1,4 +1,4 @@
-export const tools = [
+const catalog = [
   { slug: "gradient-generator", title: "Gradient Generator", category: "Design · CSS", description: "Create smooth color blends, tune the angle and stops, then copy ready-to-use CSS.", accent: "linear-gradient(120deg,#73d4b2,#9076de,#f590a7)" },
   { slug: "color-palette-generator", title: "Color Palette Generator", category: "Design · Color", description: "Build a balanced five-color palette, lock favorites, check contrast, and copy hex values.", accent: "linear-gradient(90deg,#f28482 0 20%,#f6bd60 20% 40%,#84a59d 40% 60%,#f7ede2 60% 80%,#355070 80%)" },
   { slug: "image-compressor", title: "Image Compressor", category: "Image · Optimize", description: "Compress JPG, PNG, and WebP images in your browser and compare the file sizes.", accent: "linear-gradient(135deg,#b8f36b,#59b89d 50%,#3b7185)" },
@@ -25,5 +25,39 @@ export const tools = [
   { slug: "typing-speed-test", title: "Typing Speed Test", category: "Everyday · Practice", description: "Practice typing and see your words per minute, accuracy, and elapsed time.", accent: "linear-gradient(135deg,#667eea,#764ba2)" },
   { slug: "image-cropper", title: "Image Cropper", category: "Image · Edit", description: "Crop an image to common aspect ratios and download the result as a JPEG.", accent: "linear-gradient(135deg,#fddb92,#d1fdff)" },
 ];
+
+const seo = {
+  "gradient-generator": ["Free Gradient Generator - Copy CSS Online | ToolsGeek", "Create smooth CSS gradients, adjust the angle and color stops, and copy ready-to-use code. No uploads; your gradient is designed in your browser."],
+  "color-palette-generator": ["Free Color Palette Generator - Check Contrast | ToolsGeek", "Build five-color palettes, lock favorite swatches, check contrast, and copy hex values. No uploads; your color choices stay in your browser."],
+  "image-compressor": ["Free Image Compressor - Reduce Image Size | ToolsGeek", "Compress JPG, PNG, or WebP images and compare output size before downloading. No upload is needed; image processing runs in your browser. Inputs stay local."],
+  "social-image-resizer": ["Free Social Image Resizer - Resize Online | ToolsGeek", "Resize images for common social posts, stories, profiles, and covers, then download the result. No upload; resizing happens in your browser."],
+  "favicon-generator": ["Free Favicon Generator - Create Site Icons | ToolsGeek", "Turn an image into a favicon preview and download icon files with an HTML snippet. No upload; the image is processed in your browser. Inputs stay local."],
+  "word-counter": ["Free Word Counter - Count Text Online | ToolsGeek", "Count words, characters, sentences, paragraphs, and reading time while you write. No upload; your text stays in your browser as you edit. Inputs stay local."],
+  "case-converter": ["Free Case Converter - Change Text Case | ToolsGeek", "Convert text to sentence, title, upper, lower, camel, or snake case in a click. No upload; text transformations happen in your browser. Inputs stay local."],
+  "text-diff-checker": ["Free Text Diff Checker - Compare Text Online | ToolsGeek", "Compare two text versions line by line and spot additions, removals, and unchanged lines. No upload; both drafts stay in your browser. Inputs stay local."],
+  "lorem-ipsum-generator": ["Free Lorem Ipsum Generator - Make Filler Copy | ToolsGeek", "Generate placeholder copy by word, sentence, or paragraph count for layouts and prototypes. No upload; generation runs in your browser. Inputs stay local."],
+  "qr-code-generator": ["Free QR Code Generator - Make PNG Codes | ToolsGeek", "Create a downloadable QR code from a URL or short text and choose its size. No upload; your code is generated in your browser. Inputs stay local."],
+  "unit-converter": ["Free Unit Converter - Convert Common Measures | ToolsGeek", "Convert length, weight, volume, data, and temperature values with clear results. No upload; calculations run locally in your browser. Inputs stay local."],
+  "time-zone-planner": ["Free Time Zone Planner - Compare City Times | ToolsGeek", "Compare a chosen date and time across cities with local dates and UTC offsets. No upload; all time calculations stay in your browser. Inputs stay local."],
+  "json-formatter": ["Free JSON Formatter - Validate and Minify | ToolsGeek", "Format, minify, and validate JSON with readable error details and copyable output. No upload; your data remains in your browser. Inputs stay local."],
+  "password-generator": ["Free Password Generator - Make Secure Passwords | ToolsGeek", "Create random passwords with adjustable length and character groups using browser cryptography. No upload; passwords are never sent or stored."],
+  "background-generator": ["Free Background Generator - Make Custom Art | ToolsGeek", "Create custom wallpaper backgrounds with nine patterns, color controls, and size presets, then download PNG or JPG. No upload; rendering stays in your browser."],
+  "image-pdf-converter": ["Free Image to PDF Converter - Export PDF Pages | ToolsGeek", "Combine JPG or PNG images into a PDF, or render PDF pages as downloadable PNGs. No upload; file conversion runs in your browser. Inputs stay local."],
+  "pdf-merger-splitter": ["Free PDF Merger & Splitter - Organize Pages | ToolsGeek", "Merge several PDFs or extract selected pages into a new document with simple controls. No upload; files are handled in your browser. Inputs stay local."],
+  "markdown-editor": ["Free Markdown Editor - Write with Live Preview | ToolsGeek", "Write Markdown beside a live preview, then copy the source or download a .md file. No upload; your notes stay in your browser. Inputs stay local."],
+  "csv-viewer": ["Free CSV Viewer - Preview and Export Data | ToolsGeek", "Open, edit, inspect, and export CSV data in a readable table, with quoted values supported. No upload; your file stays in your browser. Inputs stay local."],
+  "date-calculator": ["Free Date Calculator - Find Days Between Dates | ToolsGeek", "Count days between two dates or add and subtract days to find another date. No upload; calculations happen in your browser. Inputs stay local."],
+  "pomodoro-timer": ["Free Pomodoro Timer - Focus and Take Breaks | ToolsGeek", "Run a focused work timer, pause or reset a session, and track completed rounds. No upload; the timer runs in your browser. Inputs stay local."],
+  "daily-checklist": ["Free Daily Checklist - Save Tasks in Browser | ToolsGeek", "Add daily tasks, mark them done, and clear completed items with automatic local saving. No upload; checklist data stays on your device. Inputs stay local."],
+  "bill-splitter": ["Free Bill Splitter - Share Tax and Tip | ToolsGeek", "Split a bill across people and include tax, tip, and common currency options for a clear per-person total. No upload; calculations stay in your browser."],
+  "typing-speed-test": ["Free Typing Speed Test - Measure WPM Online | ToolsGeek", "Practice on a sample passage and see typing speed, accuracy, and character progress. No upload; keystrokes are measured in your browser. Inputs stay local."],
+  "image-cropper": ["Free Image Cropper - Make Common Ratios | ToolsGeek", "Crop an image to square, landscape, portrait, or story ratios and download a JPEG. No upload; cropping is performed in your browser. Inputs stay local."],
+};
+
+export const tools = catalog.map((tool) => ({
+  ...tool,
+  seoTitle: seo[tool.slug][0],
+  seoDescription: seo[tool.slug][1],
+}));
 
 export const toolBySlug = Object.fromEntries(tools.map((tool) => [tool.slug, tool]));

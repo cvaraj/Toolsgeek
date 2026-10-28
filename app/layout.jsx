@@ -1,9 +1,10 @@
 import "./site.css";
+import AdsConsentProvider from "./components/ads-consent";
 import { SITE_NAME, SITE_URL } from "./seo";
 
 export const metadata = {
   title: {
-    default: "Free Online Tools for Design, Images & Everyday Tasks",
+    default: "ToolsGeek - Free Online Image, PDF & Writing Tools",
     template: "%s | ToolsGeek",
   },
   applicationName: SITE_NAME,
@@ -27,14 +28,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="google-adsense-account" content="ca-pub-9500588134322363" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9500588134322363"
-          crossOrigin="anonymous"
-        />
       </head>
       <body>
-        {children}
+        <AdsConsentProvider>{children}</AdsConsentProvider>
       </body>
     </html>
   );

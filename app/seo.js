@@ -1,11 +1,11 @@
 export const SITE_URL = "https://toolsgeek.online";
 export const SITE_NAME = "ToolsGeek";
 
-export function pageMetadata({ title, description, path, image = "/og/home" }) {
+export function pageMetadata({ title, description, path, image = "/og/home", absoluteTitle = false }) {
   const url = new URL(path, SITE_URL).toString();
   const imageUrl = new URL(image, SITE_URL).toString();
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: path },
     openGraph: {

@@ -242,7 +242,7 @@ export default function BackgroundGenerator() {
     <div className="bg-generator">
       <aside className="bg-sidebar">
         <Link className="bg-back-link" href="/tools">← All tools</Link>
-        <h1>Background generator</h1>
+        <h2>Background generator</h2>
         <section><span className="bg-label">Style</span><div className="bg-modes">{MODES.map((item) => <button type="button" key={item} className={mode === item ? "on" : ""} onClick={() => setMode(item)}>{item}</button>)}</div></section>
         <section><span className="bg-label">Colors</span><div className="bg-swatches">{colors.map((color, i) => <input key={i} type="color" value={color} aria-label={`Color ${i + 1}`} onChange={(event) => updateColor(i, event.target.value)} />)}</div></section>
         <section><span className="bg-label">Palettes</span><div className="bg-palettes">{PALETTES.map((palette, i) => <button type="button" key={i} aria-label={`Apply palette ${i + 1}`} onClick={() => setColors(palette)}>{palette.map((color) => <i key={color} style={{ backgroundColor: color }} />)}</button>)}</div></section>
@@ -261,7 +261,7 @@ export default function BackgroundGenerator() {
         <section className="bg-actions"><button type="button" onClick={() => setSeed(Math.floor(Math.random() * 1e6))}>Shuffle</button><button type="button" onClick={() => setColors(randomPalette())}>Random colors</button></section>
         <section className="bg-actions"><button type="button" className="primary" onClick={() => download("image/png", "png")}>Download PNG</button><button type="button" onClick={() => download("image/jpeg", "jpg")}>JPG</button></section>
       </aside>
-      <main className="bg-preview"><canvas ref={canvasRef} aria-label="Generated background preview" /><div className="bg-info">{dimensions[0]} × {dimensions[1]} px · seed {seed}</div></main>
+      <div className="bg-preview"><canvas ref={canvasRef} aria-label="Generated background preview" /><div className="bg-info">{dimensions[0]} × {dimensions[1]} px · seed {seed}</div></div>
     </div>
   );
 }

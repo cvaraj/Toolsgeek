@@ -7,7 +7,11 @@ export async function GET() {
   const paths = [
     "/",
     "/tools",
-    ...tools.map((tool) => tool.slug === "background-generator" ? "/background-generator" : `/tools/${tool.slug}`),
+    "/about",
+    "/contact",
+    "/privacy-policy",
+    "/terms",
+    ...tools.map((tool) => `/tools/${tool.slug}`),
   ];
 
   const urls = paths.map((path) => `  <url><loc>${new URL(path, SITE_URL).toString()}</loc></url>`).join("\n");

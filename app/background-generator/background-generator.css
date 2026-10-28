@@ -19,7 +19,7 @@
 .bg-sidebar { width: 320px; flex: none; overflow-y: auto; padding: 20px; border-right: 1px solid var(--line); background: var(--panel); }
 .bg-back-link { display: inline-block; margin-bottom: 15px; color: var(--mute); font-size: 12px; text-decoration: none; }
 .bg-back-link:hover { color: var(--acc); }
-.bg-sidebar h1 { margin: 0 0 16px; font-size: 18px; }
+.bg-sidebar h2 { margin: 0 0 16px; font-size: 18px; }
 .bg-sidebar section { margin-bottom: 18px; }
 .bg-label { display: block; margin-bottom: 6px; color: var(--mute); font-size: 12px; }
 .bg-modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
