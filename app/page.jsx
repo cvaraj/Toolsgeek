@@ -40,8 +40,8 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-copy">
           <div className="eyebrow"><span className="status-dot" /> SMALL TOOLS. BIG HELP.</div>
-          <h1>Make room for<br /><span>the good stuff.</span></h1>
-          <p className="hero-description">Handy little tools that make everyday tasks feel a little easier. Free to use, right in your browser.</p>
+          <h1>Free Online Tools for<br /><span>Images, PDFs, Design &amp; Writing</span></h1>
+          <p className="hero-description">Compress images, merge PDFs, create backgrounds and more. 25 free tools that run right in your browser, with no sign-up and no uploads.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/tools">Find your tool <span aria-hidden="true">→</span></Link>
             <span className="hero-note">No sign-up. Just get things done.</span>
