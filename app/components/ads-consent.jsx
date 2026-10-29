@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import Script from "next/script";
 
 const CONSENT_KEY = "toolsgeek-ad-consent-v1";
 const CONSENT_CONTEXT = createContext({ consent: null, enabled: false });
@@ -40,13 +39,6 @@ export default function AdsConsentProvider({ children }) {
   const context = useMemo(() => ({ consent, enabled: ADSENSE_ENABLED }), [consent]);
 
   return <CONSENT_CONTEXT.Provider value={context}>
-    {ADSENSE_ENABLED && consent === "accepted" && <Script
-      id="google-adsense-loader"
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9500588134322363"
-      strategy="afterInteractive"
-      async
-      crossOrigin="anonymous"
-    />}
     {children}
     {ready && consent === null && <aside className="consent-banner" aria-label="Cookie and advertising choices">
       <div className="consent-copy"><strong>Privacy choices</strong><p>ToolsGeek uses essential browser storage for your preferences. If enabled, Google may use cookies for advertising. You can accept, reject, or manage advertising storage. Read our <a href="/privacy-policy">Privacy Policy</a>.</p>
